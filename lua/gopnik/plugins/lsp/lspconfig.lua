@@ -56,29 +56,14 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
--- configure c server
-lspconfig["clangd"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
+local lsp_plugins = { "rust_analyzer", "ltex", "html", "gopls", "hls", "cmake", "clangd" }
 
-lspconfig["rust_analyzer"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
-lspconfig["ltex"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
-lspconfig.jdtls.setup({})
-
--- configure html server
-lspconfig["html"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
+for _, plugin in ipairs(lsp_plugins) do
+	lspconfig[plugin].setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	})
+end
 
 -- configure typescript server with plugin
 typescript.setup({
