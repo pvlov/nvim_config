@@ -56,7 +56,7 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
-local lsp_plugins = { "rust_analyzer", "ltex", "html", "gopls", "hls", "cmake", "clangd" }
+local lsp_plugins = { "rust_analyzer", "ltex", "html", "gopls", "hls", "cmake", "clangd", "dockerls" }
 
 for _, plugin in ipairs(lsp_plugins) do
 	lspconfig[plugin].setup({

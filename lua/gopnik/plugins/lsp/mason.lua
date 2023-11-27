@@ -44,6 +44,7 @@ mason_null_ls.setup({
 		"google-java-format",
 		"ocamlformat",
 		"rustfmt",
+		"clang-format",
 	},
 	-- auto-install configured formatters & linters (with null-ls)
 	automatic_installation = true,
