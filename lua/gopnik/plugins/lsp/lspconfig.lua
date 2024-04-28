@@ -49,14 +49,13 @@ end
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
 -- Change the Diagnostic symbols in the sign column (gutter)
--- (not in youtube nvim video)
 local signs = { Error = " ", Warn = " ", Hint = "ﴞ ", Info = " " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
-local lsp_plugins = { "rust_analyzer", "ltex", "html", "gopls", "hls", "cmake", "clangd", "dockerls", "hls" }
+local lsp_plugins = { "rust_analyzer", "ltex", "html", "hls", "cmake", "clangd", "dockerls", "gopls" }
 
 for _, plugin in ipairs(lsp_plugins) do
 	lspconfig[plugin].setup({
@@ -64,6 +63,14 @@ for _, plugin in ipairs(lsp_plugins) do
 		on_attach = on_attach,
 	})
 end
+
+lspconfig.ocamllsp.setup({
+	capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+	on_attach = function(client, _)
+		-- Enable null-ls for OCaml files
+		null_ls.setup({ sources = { null_ls.builtins.diagnostics.ocamllsp } })
+	end,
+})
 
 -- configure typescript server with plugin
 typescript.setup({

@@ -45,6 +45,7 @@ mason_null_ls.setup({
 		"ocamlformat",
 		"rustfmt",
 		"clang-format",
+		"gofumpt",
 	},
 	-- auto-install configured formatters & linters (with null-ls)
 	automatic_installation = true,
