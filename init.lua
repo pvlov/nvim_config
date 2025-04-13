@@ -14,7 +14,4 @@ require("gopnik.plugins.lsp.null-ls")
 require("gopnik.plugins.autopairs")
 require("gopnik.plugins.treesitter")
 require("gopnik.plugins.gitsigns")
-
-vim.cmd([[
-    command! C :!./build.sh
-]])
+vim.api.nvim_exec("language en_US", true)

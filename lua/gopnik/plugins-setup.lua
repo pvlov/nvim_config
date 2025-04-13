@@ -35,6 +35,10 @@ return packer.startup(function(use)
 
 	use("EdenEast/nightfox.nvim") -- preferred colorscheme
 
+	use("ellisonleao/gruvbox.nvim")
+
+	use("f4z3r/gruvbox-material.nvim")
+
 	use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 
 	use("szw/vim-maximizer") -- maximizes and restores current window
@@ -109,6 +113,8 @@ return packer.startup(function(use)
 
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
+
+	use("github/copilot.vim") -- github copilot integration
 
 	if packer_bootstrap then
 		require("packer").sync()

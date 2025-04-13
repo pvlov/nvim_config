@@ -49,13 +49,44 @@ end
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
 -- Change the Diagnostic symbols in the sign column (gutter)
-local signs = { Error = " ", Warn = " ", Hint = "ﴞ ", Info = " " }
+local signs = { Error = " ", Warn = " ", Hint = "💡", Info = " " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
-local lsp_plugins = { "rust_analyzer", "ltex", "html", "hls", "cmake", "clangd", "dockerls", "gopls" }
+local lsp_plugins = {
+	"rust_analyzer",
+	"ltex",
+	"html",
+	"hls",
+	"cmake",
+	"clangd",
+	"dockerls",
+	"gopls",
+	"docker_compose_language_service",
+	"sqls",
+	"ruby_lsp",
+	"solargraph",
+	"fortls",
+	"elixirls",
+}
+
+lspconfig["pylsp"].setup({
+	settings = {
+		pylsp = {
+			plugins = {
+				pycodestyle = { maxLineLength = 120 },
+				jedi_completion = { enabled = true }, -- Enable Jedi for completion
+				pyflakes = { enabled = true }, -- Enable linting with pyflakes
+				pylsp_memcached = { enabled = true }, -- Enable for performance
+				pylsp_rope = { enabled = true }, -- Enable for refactoring
+			},
+		},
+	},
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
 
 for _, plugin in ipairs(lsp_plugins) do
 	lspconfig[plugin].setup({
