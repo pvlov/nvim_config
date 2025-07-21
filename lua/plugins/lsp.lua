@@ -39,6 +39,7 @@ return {
 						[vim.diagnostic.severity.INFO] = "",
 					},
 				},
+				virtual_text = true,
 			})
 
 			local servers = {
@@ -99,8 +100,6 @@ return {
 			end
 		end,
 	},
-
-	-- SEPARATED PLUGIN STRUCTURE TO PREVENT RACE CONDITIONS
 	{
 		"williamboman/mason.nvim",
 		config = function()
@@ -165,6 +164,8 @@ return {
 			local formatting = null_ls.builtins.formatting
 			local diagnostics = null_ls.builtins.diagnostics
 			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+			vim.g.rustfmt_autosave = 1
 
 			null_ls.setup({
 				sources = {
