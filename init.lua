@@ -1,3 +1,8 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
+vim.lsp.enable("ruff")
+
 require("config.options").setup()
 require("config.keymaps").setup()
 require("config.lazy")

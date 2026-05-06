@@ -5,10 +5,6 @@ function M.setup()
 	local map = vim.keymap.set
 	local opts = { noremap = true, silent = true }
 
-	-- Leader
-	vim.g.mapleader = " "
-	vim.g.maplocalleader = " "
-
 	-- Telescope: find-related
 	map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts) -- Find files in cwd
 	map("n", "<leader><leader>", "<cmd>Telescope live_grep<cr>", opts) -- Search string in cwd

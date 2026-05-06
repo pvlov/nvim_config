@@ -1,4 +1,0 @@
-- reduce lsp config to the stuff i really want in my life (e.g. only web + systems stuff)
-- improve git tooling
-- improve lualine and stuff around it
-- rethink life (colorscheme)

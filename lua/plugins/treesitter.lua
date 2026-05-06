@@ -20,6 +20,7 @@ return {
       "vim",
       "dockerfile",
       "gitignore",
+      "python",
     },
 
     sync_install = false,
