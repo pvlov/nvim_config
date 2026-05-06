@@ -1,8 +1,14 @@
 require("config.options").setup()
 require("config.keymaps").setup()
 require("config.lazy")
-require("lualine").setup()
+local lualine = require("lualine")
 
-mini_misc = require("mini.misc")
+lualine.setup({
+	options = {
+		theme = "gruvbox-material",
+	},
+})
+
+local mini_misc = require("mini.misc")
 mini_misc.setup()
 mini_misc.setup_termbg_sync()
