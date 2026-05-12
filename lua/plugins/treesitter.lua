@@ -35,6 +35,11 @@ return {
       enable = true,
     },
   },
+  config = function(_, opts)
+    require("nvim-treesitter.configs").setup(opts)
+    -- Workaround for Neovim 0.12.2 bug: nil root node in injected language trees crashes the highlighter
+    vim.treesitter.query.set("markdown", "injections", "")
+  end,
   dependencies = {
     "windwp/nvim-ts-autotag",
   },
