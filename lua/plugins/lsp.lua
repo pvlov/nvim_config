@@ -60,7 +60,7 @@ return {
 
 			vim.lsp.enable({
 				"lua_ls",
-				"pyright",
+				"pyrefly",
 				"ts_ls",
 				"html",
 				"cssls",
@@ -84,7 +84,7 @@ return {
 			local ensure_installed = {
 				-- LSP servers
 				"lua-language-server",
-				"pyright",
+				"pyrefly",
 				"typescript-language-server",
 				"html-lsp",
 				"css-lsp",

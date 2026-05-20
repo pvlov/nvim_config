@@ -12,6 +12,10 @@ function M.setup()
 	map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts) -- List open buffers
 	map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts) -- Help tags
 
+	-- Jump list navigation (browser-style back/forward)
+	map("n", "<X1Mouse>", "<C-o>", opts)
+	map("n", "<X2Mouse>", "<C-i>", opts)
+
 	-- Telescope: git-related
 	map("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", opts) -- Git commits
 	map("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>", opts) -- Git file commits
